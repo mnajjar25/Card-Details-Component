@@ -86,6 +86,7 @@ export class AppComponent {
       }
       this.cardForm.get('expiryDate')?.setValue(lastValue);
     }
+    
   }
 
   checkError(fieldName: string, errorName: string) {
