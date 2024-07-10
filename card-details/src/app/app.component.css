@@ -1,0 +1,53 @@
+.card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    background-color: transparent;
+    width: fit-content;
+}
+
+.card-details{
+    border: 1px solid #CCC;
+    border-radius: 10px;
+    width: fit-content;
+    display: flex;
+    background-color: white;
+}
+
+.card-details:focus-within {
+    box-shadow: 0 0 0 2px rgba(13, 110, 253, .25);
+}
+
+.card-icon{
+    margin: 5px 4px 5px 10px;
+    color: #848c84dd !important;
+    font-size: 20px;
+}
+
+input {
+    border: none;
+    border-radius: 10px;
+    padding: 5px !important;
+}
+
+.card-no{
+    width: 240px;
+}
+
+.expire-date{
+    width: 63px;
+}
+
+.cvc{
+    width: 53px;
+}
+
+input:focus{
+    box-shadow: none;
+}
+.error{
+    color: red;
+    font-size: 14px;
+}

@@ -1,0 +1,57 @@
+
+<div class="d-flex justify-content-center align-items-center card" style="width: 100%; height: 500px;">
+  <form [formGroup]="cardForm" class="card-form">
+    <h5>Card Details</h5>
+    <div class="card-details">
+      <span class="card-icon">
+        <i *ngIf="cardType === 'visa'" class="fa-brands fa-cc-visa"></i>
+        <i *ngIf="cardType === 'mastercard'" class="fa-brands fa-cc-mastercard"></i>
+        <i *ngIf="cardType === 'amex'" class="fa-brands fa-cc-amex"></i>
+        <i *ngIf="!cardType" class="fa-solid fa-credit-card"></i>
+      </span>
+
+      <input
+        type="text"
+        id="cardNumber"
+        formControlName="cardNumber"
+        class="form-control card-no"
+        placeholder="Enter card number"
+        [maxlength]="maxLengthCardNo()"
+        (input)="formatCardNumber()"
+        (keydown)="numericInput($event)"
+      />
+      <input
+        type="text"
+        id="expiryDate"
+        formControlName="expiryDate"
+        class="form-control expire-date"
+        placeholder="MM/YY"
+        maxlength="5"
+        (keyup)="formatExpiryDate($event)"
+        (keydown)="numericInput($event)"
+      />
+      <input
+        type="text"
+        id="cvc"
+        formControlName="cvc"
+        class="form-control cvc"
+        placeholder="CVC"
+        [maxlength]="maxLengthOfCVC()"
+        (keydown)="numericInput($event)"
+      />
+    </div>
+    
+    <div class="error" *ngIf="checkError('cardNumber','invalidCardNumber')">
+      Invalid card number
+    </div>
+    <div class="error" *ngIf="checkError('expiryDate','invalidExpiryDate')">
+      Expiry date format is invalid.
+    </div>
+    <div class="error" *ngIf="checkError('expiryDate','expired')">
+      Expiry date has passed.
+    </div>
+    <div class="error" *ngIf="checkError('cvc','pattern')">
+      Invalid cvc
+    </div>
+  </form>
+</div>
