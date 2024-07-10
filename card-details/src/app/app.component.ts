@@ -98,7 +98,6 @@ export class AppComponent {
     } else {
       return 4;
     }
-  
   }
 
   getCardType(cardNumber: string): string {
